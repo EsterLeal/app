@@ -9,10 +9,14 @@ const controllerCadastro = require('./cadastro/cadastroController')
 const controllerAtividades = require('./cadastrarAtividades/atividadesController')
 const jwt = require('jsonwebtoken')
 const port = 3000
+const cool = require('cool-ascii-faces')
+
 
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
+app.get('/', (req, res) => res.render('pages/index'))
+app.get('/cool', (req, res) => res.send(cool()))
 
 
 mongoose.connect(MONGO_URL,
