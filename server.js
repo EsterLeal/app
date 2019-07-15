@@ -36,7 +36,7 @@ mongoose.connect(MONGO_URL,
 
 // CONTATO ROTAS
 
-app.get('/atividade', (request, response) => {
+app.get('/CadastrarAtividades', (request, response) => {
   controllerContato.add(request.body)
   response.send('Olá, mundo!')
 })
