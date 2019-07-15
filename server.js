@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const MONGO_URL = 'mongodb+srv://admin:senha@cluster0-soclr.mongodb.net/test?retryWrites=true&w=majority'
+const MONGO_URL = 'mongodb+srv://admin:senha@cluster0-soclr.mongodb.net/test?retryWrites=true&w=majority';
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -8,7 +8,7 @@ const controllerLogin = require('./login/loginController')
 const controllerCadastro = require('./cadastro/cadastroController')
 const controllerAtividades = require('./cadastrarAtividades/atividadesController')
 const jwt = require('jsonwebtoken')
-const port = 3000
+const PORT = process.env.PORT || 3000
 const cool = require('cool-ascii-faces')
 
 
@@ -185,6 +185,6 @@ app.delete('/atividade/:id', (request, response) => {
     })
 })
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`)
-})
+
+app.listen(PORT)
+console.info(`Rodando na porta ${PORT}`)
