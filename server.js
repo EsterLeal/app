@@ -1,5 +1,7 @@
+require('dotenv-safe').load()
 const mongoose = require('mongoose')
 const MONGO_URL = 'mongodb+srv://admin:senha@cluster0-soclr.mongodb.net/test?retryWrites=true&w=majority';
+// const MONGO_URL = process.env.MONGODB_URI;
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -9,14 +11,15 @@ const controllerCadastro = require('./cadastro/cadastroController')
 const controllerAtividades = require('./cadastrarAtividades/atividadesController')
 const jwt = require('jsonwebtoken')
 const PORT = process.env.PORT || 3000
-const cool = require('cool-ascii-faces')
+
+// const cool = require('cool-ascii-faces')
 
 
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
-app.get('/', (req, res) => res.render('pages/index'))
-app.get('/cool', (req, res) => res.send(cool()))
+// app.get('/', (req, res) => res.render('pages/index'))
+// app.get('/cool', (req, res) => res.send(cool()))
 
 
 mongoose.connect(MONGO_URL,
